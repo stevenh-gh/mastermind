@@ -1,4 +1,6 @@
 module Color
+  private
+
   def generate_random_color
     case rand(1..6)
     when 1 then 'red'
