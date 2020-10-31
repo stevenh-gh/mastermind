@@ -14,7 +14,9 @@ class Game
 
   def gameplay
     12.times do |num|
+      2.times { puts } if num > 0
       print_color_list
+      puts
       puts "Round #{num + 1}:"
       guess = player.make_guess
       response = computer.check_guess(guess)
