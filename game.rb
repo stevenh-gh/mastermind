@@ -21,12 +21,16 @@ class Game
       input = gets.chomp.downcase
       legal_answer = true if input == 'y' || input == 'n'
     end
-    gameplay_player_not_mastermind if input == 'n'
+    input == 'n' ? gameplay_computer_mastermind : gameplay_player_mastermind
+  end
+
+  def gameplay_player_mastermind
+    'dummy'
   end
 
   private
 
-  def gameplay_player_not_mastermind
+  def gameplay_computer_mastermind
     NUM_ROUNDS.times do |num|
       2.times { puts } if num > 0
       print_color_list
@@ -42,12 +46,6 @@ class Game
       end
       print "#{player.name} has failed to decrypt the secret code..." if num == 11
     end
-  end
-
-  def print_color_list
-    print 'The current list of colors are: '
-    COLOR_LIST.each { |color| print "#{color} " }
-    puts
   end
 
   def win_condition
