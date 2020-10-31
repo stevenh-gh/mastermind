@@ -24,6 +24,8 @@ class Game
     gameplay_player_not_mastermind if input == 'n'
   end
 
+  private
+
   def gameplay_player_not_mastermind
     NUM_ROUNDS.times do |num|
       2.times { puts } if num > 0
@@ -41,8 +43,6 @@ class Game
       print "#{player.name} has failed to decrypt the secret code..." if num == 11
     end
   end
-
-  private
 
   def print_color_list
     print 'The current list of colors are: '
