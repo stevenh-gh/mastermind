@@ -9,7 +9,22 @@ class Player
   end
 
   def check_guess(guess)
-    'dummy'
+    response = []
+    guess.each_with_index do |color, idx|
+      legal_choice = false
+      until legal_choice
+        puts "Your code: #{code}"
+        puts "1. exactly correct\n2. correct color\n3. incorrect"
+        puts "Color \##{idx + 1}: #{color}"
+        puts
+        choice = gets.chomp
+        if %w[1 2 3].include? choice
+          response.push response_choice choice.to_i unless choice == '3'
+          legal_choice = true
+        end
+      end
+    end
+    response
   end
 
   def make_code
@@ -43,5 +58,14 @@ class Player
       end
     end
     guess
+  end
+
+  private
+
+  def response_choice(choice)
+    case choice
+    when 1 then 'exactly correct'
+    when 2 then 'correct color'
+    end
   end
 end
