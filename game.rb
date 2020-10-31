@@ -13,7 +13,18 @@ class Game
     @computer = Computer.new
   end
 
-  def gameplay
+  def query_mastermind
+    legal_answer = false
+    input = ''
+    until legal_answer
+      print "Does #{player.name} want to be the mastermind? (Y/N): "
+      input = gets.chomp.downcase
+      legal_answer = true if input == 'y' || input == 'n'
+    end
+    gameplay_player_not_mastermind if input == 'n'
+  end
+
+  def gameplay_player_not_mastermind
     NUM_ROUNDS.times do |num|
       2.times { puts } if num > 0
       print_color_list
