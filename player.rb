@@ -1,4 +1,7 @@
+require_relative 'color'
+
 class Player
+  include Color
   attr_reader :name
 
   def initialize(name)
@@ -8,8 +11,15 @@ class Player
   def make_guess
     guess = []
     4.times do |num|
-      print "Enter guess #{num}: "
-      guess.push(gets.chomp)
+      legal_input = false
+      until legal_input
+        print "Enter guess #{num}: "
+        input = gets.chomp
+        if COLOR_LIST.include? input
+          guess.push(input)
+          legal_input = true
+        end
+      end
     end
     guess
   end
