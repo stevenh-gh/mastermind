@@ -13,7 +13,7 @@ class Player
     4.times do |num|
       legal_input = false
       until legal_input
-        print "Enter guess #{num}: "
+        print "Enter guess #{num + 1}: "
         input = gets.chomp
         if COLOR_LIST.include? input
           guess.push(input)
