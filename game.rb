@@ -5,6 +5,7 @@ require_relative 'color'
 class Game
   include Color
   attr_reader :player, :computer
+  NUM_ROUNDS = 12
 
   def initialize
     print 'Enter player name: '
@@ -13,11 +14,11 @@ class Game
   end
 
   def gameplay
-    12.times do |num|
+    NUM_ROUNDS.times do |num|
       2.times { puts } if num > 0
       print_color_list
       puts
-      puts "Round #{num + 1}:"
+      puts "Round #{num + 1} of #{NUM_ROUNDS}:"
       guess = player.make_guess
       response = computer.check_guess(guess)
       print "You guessed: #{guess}\n"
