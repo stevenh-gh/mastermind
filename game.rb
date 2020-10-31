@@ -25,7 +25,7 @@ class Game
   end
 
   def gameplay_player_mastermind
-    'dummy'
+    code = player.make_code
   end
 
   private
