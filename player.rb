@@ -8,6 +8,10 @@ class Player
     @name = name
   end
 
+  def check_guess(guess)
+    'dummy'
+  end
+
   def make_code
     @code = []
     4.times do |num|
