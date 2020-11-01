@@ -15,7 +15,7 @@ class Player
       until legal_choice
         puts "Your code: #{code}"
         puts "1. exactly correct\n2. correct color\n3. incorrect"
-        puts "Color \##{idx + 1}: #{color}"
+        puts "Color \##{idx + 1}: #{color} of #{guess}"
         puts
         choice = gets.chomp
         if %w[1 2 3].include? choice
