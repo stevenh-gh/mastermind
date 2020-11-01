@@ -26,6 +26,13 @@ class Game
 
   def gameplay_player_mastermind
     code = player.make_code
+    NUM_ROUNDS.times do |num|
+      puts "Round #{num + 1} of #{NUM_ROUNDS}"
+      guess = computer.make_guess
+      print "Guess: #{guess}\n"
+      response = player.check_guess(guess)
+      print "#Response: {response}\n"
+    end
   end
 
   private
