@@ -29,9 +29,9 @@ class Game
     NUM_ROUNDS.times do |num|
       puts "Round #{num + 1} of #{NUM_ROUNDS}"
       guess = computer.make_guess
-      print "Guess: #{guess}\n"
+      puts "Guess: #{guess}"
       response = player.check_guess(guess)
-      print "#Response: {response}\n"
+      puts "Response: #{response}"
     end
   end
 
