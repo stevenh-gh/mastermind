@@ -8,6 +8,10 @@ class Computer
     @code = random_color_array
   end
 
+  def make_guess
+    random_color_array
+  end
+
   def check_guess(guess_array)
     response = []
     guess_array.each_with_index do |color, idx|
