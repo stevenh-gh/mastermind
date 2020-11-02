@@ -24,6 +24,8 @@ class Game
     input == 'n' ? gameplay_computer_mastermind : gameplay_player_mastermind
   end
 
+  private
+
   def gameplay_player_mastermind
     code = player.make_code
     NUM_ROUNDS.times do |num|
@@ -32,10 +34,13 @@ class Game
       puts "Guess: #{guess}"
       response = player.check_guess(guess)
       puts "Response: #{response}"
+      if response == win_condition
+        puts 'The computer has guessed correctly!'
+        break
+      end
+      print 'The computer has failed to decrypt the secret code...' if num == 11
     end
   end
-
-  private
 
   def gameplay_computer_mastermind
     NUM_ROUNDS.times do |num|
