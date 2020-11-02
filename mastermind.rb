@@ -7,8 +7,8 @@ class Mastermind
   end
 
   def play
-    play_again = true
-    while play_again
+    play_again = false
+    unless play_again
       game.query_mastermind
       legal_answer = false
       until legal_answer
@@ -16,8 +16,8 @@ class Mastermind
         print 'Play again? (Y/N): '
         input = gets.chomp.downcase
         legal_answer = true if input == 'y' || input == 'n'
-        break if legal_answer == 'n'
       end
+      play_again = true if legal_answer == 'y'
     end
   end
 end
